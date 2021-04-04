@@ -102,12 +102,12 @@ class DocFree():
         self.root.mainloop()
 
 
-A = DocFree("DocFree")
-A.FileCRFrame()
-A.FileListFrame()
-A.FilePath()
-A.ProgressBar()
-A.StartQuit()
-A.run()
+def Create():
+    A = DocFree("DocFree")
+    A.FileCRFrame()
+    A.FileListFrame()
+    A.FilePath()
+    A.ProgressBar()
+    A.StartQuit()
+    A.run()
 
- 
