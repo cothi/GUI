@@ -7,6 +7,7 @@ def CheckDocument():
     for proc in psutil.process_iter():
         
         if proc.name() == "Microsoft Excel":
+
             time.sleep(1)
             path = []
             for i in proc.open_files():
