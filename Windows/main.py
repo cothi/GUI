@@ -1,4 +1,3 @@
-
 """
 작성팀: Server-Agent (한지웅, 박준석)
 작성날짜: 2021.04.02
@@ -9,7 +8,7 @@
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from CheckFilesFrame import DocFree, Create
-
+from qt_material import apply_sty
 
 class AppMainFrame:
     
@@ -18,12 +17,11 @@ class AppMainFrame:
 
         self.app = QApplication([])
         
-    
+
 
     def run(self):
 
         self.app.setQuitOnLastWindowClosed(False)
-
 
 
         # Create the icon
@@ -40,12 +38,12 @@ class AppMainFrame:
 
         menu = QMenu()
         action = QAction("파일 검사")
-   #     action.setChecked(True)
+        # action.setChecked(True)
         action.triggered.connect(Create)
 
         action2 = QAction("실시간 검사", checkable=True)
         action2.setChecked(True)
-   #     action2.triggered.connect(helle)
+        # action2.triggered.connect(helle)
 
         
         menu.addAction(action)
@@ -59,8 +57,6 @@ class AppMainFrame:
 
         # Add the menu to the tray
         tray.setContextMenu(menu)
-
-
 
         self.app.exec_()
 

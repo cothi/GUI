@@ -6,8 +6,6 @@ from tkinter import *
 from tkinter import filedialog
 from InspectionRealTime import CheckDocument
 
-
-
 class AwesomeStatusBarApp(rumps.App):
 
     def create(self):

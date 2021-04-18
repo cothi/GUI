@@ -14,6 +14,10 @@ class DocFree():
     def __init__(self, title):
         self.root = Tk()
         self.root.title(title)
+        self.root.tk.call('source', 'azure/azure.tcl')
+        self.style = ttk.Style(self.root)
+
+        self.style.theme_use('azure')
         self.root.geometry("400x450")
         self.NVar = DoubleVar()
 
@@ -111,3 +115,4 @@ def Create():
     A.StartQuit()
     A.run()
 
+Create()
