@@ -1,3 +1,12 @@
+"""
+작성팀: Server-Agent (한지웅, 박준석)
+작성일자: 2021.04.02
+업데이트 일자: 2021.04.22
+이메일: jiungdev@gmail.com
+개발환경: python 3.9.2 64bit
+참고: https://developer.microsoft.com/ko-kr/windows/downloads/windows-10-sdk
+"""
+
 import sys
 import time
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QProgressBar
@@ -6,11 +15,13 @@ from PyQt5.QtCore import QBasicTimer
 from multiprocessing import Process
 from qt_material import apply_stylesheet
 from PyQt5.QtGui import *
+from PyQt5 import *
+
 
 class AppD(QWidget):
     def __init__(self):
         super().__init__()
-        self.title = 'PyQt5 file dialogs - pythonspot.com'
+        self.title = 'DocuFree'
         self.listWidget = QListWidget()
         self.phar = QProgressBar()
         self.timer = QBasicTimer()
@@ -24,16 +35,9 @@ class AppD(QWidget):
         self.setWindowTitle(self.title)
         self.setGeometry(800, 400, 400, 300)
         
-     
-        """
-        self.saveFileDialog()
-        """
-
-
       
         def AddFunc():
             files = self.openFileNamesDialog()
-                    
             if len(files) != 0:
                 for i in range(len(files)):
                     print(files[i])
@@ -45,12 +49,7 @@ class AppD(QWidget):
 
 
         def RemoveFunc():
-            """
-            print(self.listWidget.selectedItems())
-              
-            for item in self.listWidget.:
-                self.listWidget.takeItem(self.listWidget.row(item))
-            """
+            
             A = self.listWidget.count()
             count = 0
 
@@ -67,9 +66,11 @@ class AppD(QWidget):
                         break
 
         def RunFunc():
-            for i in range(1, 100):
+            for i in range(1, 101):
                 self.phar.setValue(i)
                 time.sleep(0.05)
+
+            return "qwer"
 
         font = QFont()
         font.setFamily("Verdana")
@@ -118,7 +119,7 @@ class AppD(QWidget):
         horizontalLayout.addWidget(self.listWidget)
         horizontalLayout.addLayout(buttonLayout1)
         
-        # Main Box 
+        # 메인 레이아웃에 설정한 레이아웃 설정
         mainLayout = QVBoxLayout()
         self.setLayout(mainLayout)
         mainLayout.addLayout(horizontalLayout)
@@ -127,14 +128,16 @@ class AppD(QWidget):
         mainLayout.addLayout(buttonLayout2)
         self.show()
 
+    
+        
 
     def timerEvent(self, event):
         pass
 
     def openFileNamesDialog(self):
-        options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
-        files, _ = QFileDialog.getOpenFileNames(self,"QFileDialog.getOpenFileNames()", "","All Files (*);;Python Files (*.py)", options=options)
+        options = QtWidgets.QFileDialog.Options()
+        options |= QtWidgets.QFileDialog.DontUseNativeDialog
+        files, _ = QtWidgets.QFileDialog.getOpenFileNames(self,"QFileDialog.getOpenFileNames()", "","All Files (*);;Python Files (*.py)", options=options)
 
         return files
         
